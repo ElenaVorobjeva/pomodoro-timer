@@ -1,0 +1,306 @@
+/*common*/
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+input[type=number]{
+  -moz-appearance: textfield;
+}
+
+/*body*/
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #FD0079;
+    font: 25px "Roboto", sans-serif;
+    color: #fff;
+}
+
+/*main*/
+main {
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    height: 700px;
+}
+
+/*time*/
+.time-block {
+    display: flex;
+    font-size: 130px;
+    color: #fff;
+    text-align: center;
+}
+
+.timer-interval {
+    display: flex;
+    justify-content: center;
+}
+
+/*round-button*/
+.round-btn-wrapper {
+    position: relative;
+    align-self: center;
+    margin: 50px 0;
+}
+
+.round-btn {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    padding: 0;
+    border: 3px solid #fff;
+    background-color: #FD0079;
+    cursor: pointer;
+}
+
+/*play-button*/
+.play {
+    display: block;
+}
+
+.play::after {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: 58px;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+	border-left: 80px solid #fff;
+	border-bottom: 50px solid transparent;
+}
+
+.play:hover {
+    background-color: #fff;
+}
+
+.play:active {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.9);
+}
+
+.play:hover::after, .play:active::after {
+    border-left-color: #FD0079;
+}
+
+/*pause-button*/
+.pause {
+    display: none;
+}
+
+.pause::before, .pause::after {
+    content: "";
+    position: absolute;
+    top: 47px;
+    width: 17px;
+    height: 85px;
+    background-color: #fff;
+}
+
+.pause::before {
+    left: 58px;
+}
+
+.pause::after {
+    left: 104px;
+}
+
+.pause:hover {
+    background-color: #fff;   
+}
+
+.pause:active {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.9);
+}
+
+.pause:hover::before, .pause:hover::after,
+.pause:active::before, .pause:active::after {
+    background-color: #FD0079;
+}
+
+/*task*/
+.task {
+    margin-bottom: 50px; 
+    text-align: center;
+}
+
+/*setting button*/
+.btn {
+    align-self: center;
+    width: 250px;
+    height: 70px;
+    margin-bottom: 25px;
+    padding: 10px 30px;
+    border: 3px solid #fff;
+    background-color: #FD0079;
+    color: #fff;
+    font-size: 25px;
+    text-transform: uppercase;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #FD0079;
+}
+
+.btn:active {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.9);
+    color: #FD0079;    
+}
+
+.underline-btn {
+    align-self: center;
+    border: none;
+    border-bottom: 1px dashed #fff;
+    background-color: #FD0079;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/*setting*/
+section {
+    display: none;
+    width: 700px;
+    background-color: #FD0079;
+    font-size: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #fff;
+}
+
+.header h2 {
+    margin: 25px;
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 50px;
+}
+
+.close {
+    align-self: flex-end;
+    width: 50px;
+    height: 50px;
+    margin: 25px;
+    background-color: #FD0079;
+    cursor: pointer;
+}
+
+.close::before, .close::after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 50px;
+    background-color: #fff;
+}
+
+.close::before {
+    transform: rotate(-45deg) translate(15px, 15px);
+}
+
+.close::after {
+    transform: rotate(45deg) translate(15px, -15px);
+}
+
+.close:hover {
+    transform: scale(1.1);
+}
+
+.common-setting-form {
+    margin: 25px;
+}
+
+.common-setting-form > div {
+    margin-bottom: 10px;
+}
+
+.common-setting-form label {
+    float: left;
+}
+
+.common-setting-form .number-input {
+    float: right;
+   
+}
+
+.common-setting-form .number-input input, .common-setting-form .number-input button {
+    width: 50px;
+    height: 25px;
+    box-sizing: content-box;
+    padding: 5px 10px;
+    border: 1px solid #fff;
+    background-color: #FD0079;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    outline: none;
+    line-height: 25px;
+}
+
+.common-setting-form .number-input button {
+    width: 25px;
+    cursor: pointer;
+}
+
+.common-setting-form .number-input button:hover {
+    background-color: #fff;
+    color: #FD0079;
+}
+
+.common-setting-form .number-input button:active {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.9);
+    color: #FD0079;
+}
+
+.btn-unbordered-container {
+    width: 200px;
+    margin: 30px auto;
+}
+
+.btn-unbordered {
+    align-self: center;
+    width: 190px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    border-bottom: 2px solid #fff;
+    background-color: #FD0079;
+    opacity: .9;
+    color: #fff;
+    cursor: pointer;
+}
+.btn-unbordered:hover {
+    opacity: 1;
+}
+
+.common-setting-form .btn-container {
+    width: 250px;
+    margin: 80px auto;
+}

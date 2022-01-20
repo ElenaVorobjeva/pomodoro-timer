@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>MyTimer</title>
+</head>
+<body>
+    <div class="flex">
+        <main>
+            <div class="time-block">
+                <div class="minutes"></div>
+                <div>:</div>
+                <div class="seconds"></div>
+            </div>
+            <div class="timer-interval">
+                <div class="current-interval"></div>
+                <div>/</div>
+                <div class="all-intervals"></div>
+            </div>
+            <div class="round-btn-wrapper">
+                <button class="round-btn play"></button>
+                <button class="round-btn pause"></button>
+            </div>
+            <div class="task"></div>
+            <button class="btn clear">Сбросить</button>
+            <button class="underline-btn setting-btn">Настройки</button>
+        </main>
+
+        <section class="setting">
+            <div class="header">
+                <h2>Настройки</h2>
+                <div class="close"></div>
+            </div>
+            <div class="common-setting-form">
+                <div class="clearfix">
+                    <label for="work-time">Время работы</label>
+                    <div class="number-input">
+                        <button class="minus">-</button>
+                        <input id="work-time" type="number" value="1">
+                        <button class="plus">+</button>
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="short-break-time">Короткий перерыв</label>
+                    <div class="number-input">
+                        <button class="minus">-</button>
+                        <input id="short-break-time" type="number" value="0.25">
+                        <button class="plus">+</button>
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="long-break-time">Длинный перерыв</label>
+                    <div class="number-input">
+                        <button class="minus">-</button>
+                        <input id="long-break-time" type="number" value="30">
+                        <button class="plus">+</button>
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="work-in-raund">Количество помидорок в раунде</label>
+                    <div class="number-input">
+                        <button class="minus">-</button>
+                        <input id="work-in-raund" type="number" value="4">
+                        <button class="plus">+</button>
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <label for="work-at-the-day">Количество помидорок за день</label>
+                    <div class="number-input">
+                        <button class="minus">-</button>
+                        <input id="work-at-the-day" type="number" value="2">
+                        <button class="plus">+</button>
+                    </div>
+                </div>
+                <!-- <div class="btn-unbordered-container">
+                    <button class="btn-unbordered">Настроить по отдельности</button>
+                </div> -->
+                <div class="btn-container">
+                    <button class="btn">Сохранить</button>
+                </div>
+            </div>
+            <div class="setting-form">
+
+            </div>
+        </section>
+    </div>
+    <script src="handler.js"></script>
+</body>
+</html>
