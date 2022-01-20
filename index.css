@@ -233,6 +233,8 @@ section {
 }
 
 .common-setting-form {
+    display: flex;
+    flex-direction: column;
     margin: 25px;
 }
 
@@ -277,6 +279,10 @@ section {
     background-color: rgba(255, 255, 255, 0.9);
     border-color: rgba(255, 255, 255, 0.9);
     color: #FD0079;
+}
+
+.common-setting-form .clear-setting {
+    margin-top: 25px;
 }
 
 .btn-unbordered-container {
