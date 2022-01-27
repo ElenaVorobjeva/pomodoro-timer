@@ -92,6 +92,7 @@ function initialState() {
     document.querySelector(".all-intervals").innerHTML = document.querySelector("#work-at-the-day").value;
     taskBlock.innerHTML = "Время поработать!";
     timeBlock.style.color = "#FFFFFF";
+    document.title = "MyTimer";
 }
 
 function timerTick(timer_params) {
