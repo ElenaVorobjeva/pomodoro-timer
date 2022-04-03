@@ -6,6 +6,7 @@ let timeBlock = document.querySelector(".time-block");
 let currentIntervalBlock = document.querySelector(".current-interval");
 let currentRoundIntervalBlock = document.querySelector(".current-round-interval");
 let taskBlock = document.querySelector(".task");
+let container = document.querySelector('.flex');
 
 let now_seconds = 0; // сколько секунд прошло
 let now_round_times = 0;
@@ -14,6 +15,10 @@ let interval_type = 'work'; // режим работы таймера
 let intervalVariable; // id таймера
 let timer_minutes = 0; // начальные значения счетчиков минут
 let timer_seconds = 0; // --//-- секунд
+
+const pink = '#FD0079';
+const lightBlue = '#45BABF';
+const blue = '#5745BF';
 
 setInitialValue();
 initialState();
@@ -63,9 +68,9 @@ pauseButton.onclick = function () {
 
 document.querySelector(".clear").onclick = function () {
     dispatchClick(pauseButton);
-
     interval_type = 'work';
-    timeBlock.style.color = '#FFFFFF';
+    container.style.background = pink;
+    document.documentElement.style.setProperty('--theme-color', pink);
     now_seconds = 0;
     now_times = 0;
 
@@ -79,8 +84,8 @@ function setInitialValue() {
     document.querySelector("#work-time").value = 25;
     document.querySelector("#short-break-time").value = 5;
     document.querySelector("#long-break-time").value = 30;
-    document.querySelector("#work-in-round").value = 4;
-    document.querySelector("#work-at-the-day").value = 12;
+    document.querySelector("#work-in-round").value = 2;
+    document.querySelector("#work-at-the-day").value = 4;
 }
 
 function initialState() {
@@ -91,14 +96,16 @@ function initialState() {
     currentIntervalBlock.innerHTML = "1";
     document.querySelector(".all-intervals").innerHTML = document.querySelector("#work-at-the-day").value;
     taskBlock.innerHTML = "Время поработать!";
-    timeBlock.style.color = "#FFFFFF";
+    container.style.background = pink;
+    document.documentElement.style.setProperty('--theme-color', pink);
     document.title = "MyTimer";
 }
 
 function timerTick(timer_params) {
     if (interval_type == 'work') {
         if (timer_params.time_work - now_seconds > 0) {
-            timeBlock.style.color = '#F6FB00'; //yellow
+            container.style.background = pink;
+            document.documentElement.style.setProperty('--theme-color', pink);
             taskBlock.innerHTML = "Время поработать!";
             renderTimerNums(timer_params.time_work - now_seconds);
             now_seconds++;
@@ -112,7 +119,8 @@ function timerTick(timer_params) {
     }
     else if (interval_type == 'short_rest') {
         if (timer_params.time_short_rest - now_seconds > 0) {
-            timeBlock.style.color = '#00FB19'; //green
+            container.style.background = lightBlue;
+            document.documentElement.style.setProperty('--theme-color', lightBlue);
             taskBlock.innerHTML = "Время отходнуть!";
             renderTimerNums(timer_params.time_short_rest - now_seconds);
             now_seconds++;
@@ -127,7 +135,8 @@ function timerTick(timer_params) {
                 currentIntervalBlock.innerHTML = timer_params.interval_count;
                 dispatchClick(pauseButton);
                 now_seconds = 0;
-                timeBlock.style.color = '#FFFFFF';
+                container.style.background = pink;
+                document.documentElement.style.setProperty('--theme-color', pink);
             }
             else {
                 currentRoundIntervalBlock.innerHTML = now_round_times;
@@ -138,7 +147,8 @@ function timerTick(timer_params) {
     }
     else if (interval_type == 'long_rest') {
         if (timer_params.time_long_rest - now_seconds > 0) {
-            timeBlock.style.color = '#00FB19'; //green
+            container.style.background = blue;
+            document.documentElement.style.setProperty('--theme-color', blue);
             taskBlock.innerHTML = "Время длинного перерыва!";
             renderTimerNums(timer_params.time_long_rest - now_seconds);
             now_seconds++;
@@ -153,7 +163,8 @@ function timerTick(timer_params) {
                 currentIntervalBlock.innerHTML = timer_params.interval_count;
                 dispatchClick(pauseButton);
                 now_seconds = 0;
-                timeBlock.style.color = '#FFFFFF';
+                container.style.background = pink;
+                document.documentElement.style.setProperty('--theme-color', pink);
             }
             else {
                 currentRoundIntervalBlock.innerHTML = now_round_times;
@@ -222,3 +233,10 @@ document.querySelector(".save").addEventListener("click", function () {
     initialState();
     dispatchClick(document.querySelector('.close'));
 });
+
+
+function getLinearGradient(block, color1, color2, percent) {
+    // background: -webkit - linear - gradient(90deg, rgb(253, 0, 121) 21 %, rgb(110, 223, 227));
+    // background: -moz - linear - gradient(90deg, rgb(253, 0, 121) 21 %, rgb(110, 223, 227));
+    // background: linear - gradient(90deg, rgb(253, 0, 121) 21 %, rgb(110, 223, 227));
+}
