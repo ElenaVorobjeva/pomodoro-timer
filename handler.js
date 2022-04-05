@@ -16,6 +16,8 @@ let intervalVariable; // id таймера
 let timer_minutes = 0; // начальные значения счетчиков минут
 let timer_seconds = 0; // --//-- секунд
 
+let secDuration = 1000;
+
 setInitialValue();
 initialState();
 
@@ -48,7 +50,7 @@ playButton.onclick = function () {
         currentIntervalBlock.innerHTML = now_times;
     }
 
-    intervalVariable = setInterval(timerTick, 10, timer_params);
+    intervalVariable = setInterval(timerTick, secDuration, timer_params);
 
     return false;
 }

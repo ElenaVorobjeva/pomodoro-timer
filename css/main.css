@@ -1,5 +1,6 @@
 :root {
     --white: 255, 255, 255;
+    --grey: 142, 142, 142;
     --pink: #FD0079;
     --light-blue: #45BABF;
     --blue: #5745BF;
@@ -14,6 +15,8 @@ body {
     margin: 0;
     padding: 0;
     border: 0;
+    font: 25px 'Mulish', 'Roboto', sans-serif;
+    font-weight: 400;
 }
 
 .clearfix::after {
@@ -34,6 +37,11 @@ input[type=number]{
   -moz-appearance: textfield;
 }
 
+button {
+    font-family: 'Mulish', 'Roboto', sans-serif;
+    border: none;
+}
+
 /*body*/
 .flex {
     display: flex;
@@ -41,7 +49,6 @@ input[type=number]{
     align-items: center;
     width: 100vw;
     min-height: 100vh;
-    font: 25px "Roboto", sans-serif;
     color: rgb(var(--white));
     background: var(--theme-color)
                 -webkit-linear-gradient(
@@ -75,6 +82,7 @@ main {
 .time-block {
     display: flex;
     font-size: 130px;
+    font-weight: 700;
     color: rgb(var(--white));
     text-align: center;
 }
@@ -99,6 +107,18 @@ main {
     border: 3px solid rgb(var(--white));
     background-color: transparent;
     cursor: pointer;
+    transition: 200ms;
+}
+
+.round-btn:hover {
+    transform: scale(1.05);
+    
+}
+
+.round-btn:active {
+    -webkit-box-shadow: 0 5px 20px rgba(var(--grey), .3);
+       -moz-box-shadow: 0 5px 20px rgba(var(--grey), .3);
+            box-shadow: 0 5px 20px rgba(var(--grey), .3);
 }
 
 /*play-button*/
@@ -109,27 +129,13 @@ main {
 .play::after {
     content: "";
     position: absolute;
-    top: 40px;
-    left: 58px;
+    top: 22.2%;
+    left: 34.4%;
     width: 0;
     height: 0;
     border-top: 50px solid transparent;
 	border-left: 80px solid rgb(var(--white));
 	border-bottom: 50px solid transparent;
-}
-
-.play:hover {
-    background-color: rgb(var(--white));
-}
-
-.play:active {
-    background-color: rgba(var(--white), .9);
-    border-color: rgba(var(--white), .9);
-}
-
-.play:hover::after, 
-.play:active::after {
-    border-left-color: var(--theme-color);
 }
 
 /*pause-button*/
@@ -140,34 +146,18 @@ main {
 .pause::before, .pause::after {
     content: "";
     position: absolute;
-    top: 47px;
-    width: 17px;
+    top: 26.3%;
+    width: 20px;
     height: 85px;
     background-color: rgb(var(--white));
 }
 
 .pause::before {
-    left: 58px;
+    left: 31.5%;
 }
 
 .pause::after {
-    left: 104px;
-}
-
-.pause:hover {
-    background-color: rgb(var(--white));   
-}
-
-.pause:active {
-    background-color: rgba(var(--white), .9);
-    border-color: rgba(var(--white), .9);
-}
-
-.pause:hover::before, 
-.pause:hover::after,
-.pause:active::before, 
-.pause:active::after {
-    background-color: var(--theme-color); 
+    right: 31.5%;
 }
 
 /*task*/
@@ -190,17 +180,17 @@ main {
     text-transform: uppercase;
     line-height: 30px;
     cursor: pointer;
+    transition: 200ms;
 }
 
 .btn:hover {
-    background-color: rgb(var(--white));
-    color: var(--theme-color);
+    transform: scale(1.05);
 }
 
 .btn:active {
-    background-color: rgba(var(--white), .9);
-    border-color: rgba(var(--white), .9);
-    color: var(--theme-color);    
+    -webkit-box-shadow: 0 5px 20px rgba(var(--grey), .3);
+       -moz-box-shadow: 0 5px 20px rgba(var(--grey), .3);
+            box-shadow: 0 5px 20px rgba(var(--grey), .3);
 }
 
 .underline-btn {
@@ -211,6 +201,16 @@ main {
     color: rgb(var(--white));
     font-size: 18px;
     cursor: pointer;
+}
+
+.underline-btn:hover {
+    border-bottom-style: solid;
+}
+
+.underline-btn:active {
+    -webkit-box-shadow: 0px 5px 10px -5px rgba(var(--grey), .3);
+       -moz-box-shadow: 0px 5px 10px -5px rgba(var(--grey), .3);
+            box-shadow: 0px 5px 10px -5px rgba(var(--grey), .3);
 }
 
 /*setting*/
@@ -252,15 +252,22 @@ section {
 }
 
 .close::before {
-    transform: rotate(-45deg) translate(15px, 15px);
+    transform: rotate(-45deg) translate(15px, -15px);
 }
 
 .close::after {
-    transform: rotate(45deg) translate(15px, -15px);
+    transform: rotate(45deg) translate(-15px, -15px);
 }
 
 .close:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
+}
+
+.close:active::before,
+.close:active::after {
+    -webkit-box-shadow: 0 5px 20px rgba(var(--grey), .3);
+       -moz-box-shadow: 0 5px 20px rgba(var(--grey), .3);
+            box-shadow: 0 5px 20px rgba(var(--grey), .3);
 }
 
 .common-setting-form {
@@ -279,10 +286,11 @@ section {
 
 .common-setting-form .number-input {
     float: right;
-   
+    display: flex;
 }
 
-.common-setting-form .number-input input, .common-setting-form .number-input button {
+.common-setting-form .number-input input, 
+.common-setting-form .number-input button {
     width: 50px;
     height: 25px;
     box-sizing: content-box;
@@ -301,15 +309,20 @@ section {
     cursor: pointer;
 }
 
-.common-setting-form .number-input button:hover {
-    background-color: rgb(var(--white));
-    color: var(--theme-color);
+.common-setting-form .number-input input {
+    margin: 0 10px;
 }
 
+.common-setting-form .number-input input:hover,
+.common-setting-form .number-input button:hover {
+    transform: scale(1.05);
+}
+
+.common-setting-form .number-input input:focus,
 .common-setting-form .number-input button:active {
-    background-color: rgba(var(--white), .9);
-    border-color: rgba(var(--white), .9);
-    color: var(--theme-color);
+    -webkit-box-shadow: 0 5px 20px rgba(var(--grey), .3);
+       -moz-box-shadow: 0 5px 20px rgba(var(--grey), .3);
+            box-shadow: 0 5px 20px rgba(var(--grey), .3);
 }
 
 .common-setting-form .clear-setting {
