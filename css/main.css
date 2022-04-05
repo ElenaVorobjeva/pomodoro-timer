@@ -1,6 +1,12 @@
 :root {
     --white: 255, 255, 255;
-    --theme-color: #FD0079;
+    --pink: #FD0079;
+    --light-blue: #45BABF;
+    --blue: #5745BF;
+    --theme-color: var(--pink);
+    --transition-color: var(--light-blue);
+    --transition-color-offset: 0%;
+    --transparent-color-offset: 0%;
 }
 
 /*common*/
@@ -37,6 +43,24 @@ input[type=number]{
     min-height: 100vh;
     font: 25px "Roboto", sans-serif;
     color: rgb(var(--white));
+    background: var(--theme-color)
+                -webkit-linear-gradient(
+                    90deg, 
+                    var(--transition-color) var(--transition-color-offset),
+                    transparent var(--transparent-color-offset)
+                );
+    background: var(--theme-color)
+                -moz-linear-gradient(
+                    90deg, 
+                    var(--transition-color) var(--transition-color-offset),
+                    transparent var(--transparent-color-offset)
+                );
+    background: var(--theme-color)
+                linear-gradient(
+                    90deg,
+                    var(--transition-color) var(--transition-color-offset),
+                    transparent var(--transparent-color-offset)
+                );
 }
 
 /*main*/
